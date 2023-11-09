@@ -1,5 +1,72 @@
+@model ServiceModel.Article
+
 @{
     ViewBag.Title = "title";
 }
 
-<h2>@ViewBag.HelloResult</h2>
+<h2>Details</h2>
+
+<div>
+    <h4>Article</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Documents[0].Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Documents[0].Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Documents[0].FileName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Documents[0].FileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Documents[0].FilePath)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Documents[0].FilePath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Documents[0].ArticleId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Documents[0].ArticleId)
+        </dd>
+        
+        <dd>
+        @* <iframe src="@Url.Action("PreviewPdf", new { pdfFilePath = $@"{Model.Documents[0].FilePath}\\{Model.Documents[0].FileName}DD" })" width="50%" height="800"></iframe>  *@
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index", "Home")
+</p>

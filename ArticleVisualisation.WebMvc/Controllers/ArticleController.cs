@@ -10,8 +10,13 @@ namespace ArticleVisualisation.WebMvc.Controllers
         public ViewResult Index()
         {
             var result = base.Gateway.Send<ArticleResponse>(new UniqueArticle { Id = 1 });
-            ViewBag.HelloResult = result.Article.Name;
-            return View();
-        } 
+            ViewBag.HelloResult = result.Article;
+            return View(result.Article);
+        }
+        
+        public ActionResult PreviewPdf(string pdfFilePath)
+        {
+            return File(pdfFilePath, "application/pdf");
+        }
     }
 }
